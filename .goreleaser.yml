@@ -13,7 +13,7 @@ builds:
       - darwin
 dockers:
   - image_templates:
-      - 'ghcr.io/parkour-vienna/distrust:{{ .Version }}'
+      - 'ghcr.io/jonaharagon/distrust:{{ .Version }}'
 checksum:
   name_template: 'checksums.txt'
 snapshot:

@@ -10,10 +10,10 @@ import (
 	"strings"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/jonaharagon/distrust/auth"
+	"github.com/jonaharagon/distrust/discourse"
+	"github.com/jonaharagon/distrust/requestlog"
 	"github.com/ory/fosite"
-	"github.com/parkour-vienna/distrust/auth"
-	"github.com/parkour-vienna/distrust/discourse"
-	"github.com/parkour-vienna/distrust/requestlog"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"

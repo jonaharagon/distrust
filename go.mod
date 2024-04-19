@@ -1,4 +1,4 @@
-module github.com/parkour-vienna/distrust
+module github.com/jonaharagon/distrust
 
 go 1.16
 
