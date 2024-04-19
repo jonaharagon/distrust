@@ -12,10 +12,10 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/jonaharagon/distrust/cryptutils"
+	"github.com/jonaharagon/distrust/discourse"
 	"github.com/ory/fosite"
 	"github.com/ory/fosite/handler/openid"
-	"github.com/parkour-vienna/distrust/cryptutils"
-	"github.com/parkour-vienna/distrust/discourse"
 	"github.com/rs/zerolog/log"
 	jose "gopkg.in/square/go-jose.v2"
 )
@@ -227,9 +227,9 @@ func (o *OIDCProvider) certsEndpoint(rw http.ResponseWriter, req *http.Request) 
 		Keys: []jose.JSONWebKey{
 			{
 				Algorithm: "RS256",
-				KeyID: cryptutils.KeyID(o.privateKey.PublicKey),
-				Use:   "sig",
-				Key:   &o.privateKey.PublicKey,
+				KeyID:     cryptutils.KeyID(o.privateKey.PublicKey),
+				Use:       "sig",
+				Key:       &o.privateKey.PublicKey,
 			},
 		},
 	}

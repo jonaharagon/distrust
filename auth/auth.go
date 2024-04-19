@@ -10,13 +10,13 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/google/uuid"
+	"github.com/jonaharagon/distrust/cryptutils"
+	"github.com/jonaharagon/distrust/discourse"
 	"github.com/ory/fosite"
 	"github.com/ory/fosite/compose"
 	"github.com/ory/fosite/handler/openid"
 	"github.com/ory/fosite/storage"
 	"github.com/ory/fosite/token/jwt"
-	"github.com/parkour-vienna/distrust/cryptutils"
-	"github.com/parkour-vienna/distrust/discourse"
 	"github.com/rs/zerolog/log"
 )
 

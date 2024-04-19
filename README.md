@@ -19,7 +19,7 @@ podman run -d \
   --name distrust \
   -v $PWD/distrust.yml:/distrust.yml:Z \
   -p 3000:3000 \
-  ghcr.io/parkour-vienna/distrust:$VERSION
+  ghcr.io/jonaharagon/distrust:$VERSION
 ```
 
 ## Configuration
@@ -103,4 +103,3 @@ The two endpoints the client will interact with are:
   * `https://example.com/oauth2/auth`
 * The token endpoint
   * `https://example.com/oauth2/token`
-
