@@ -124,10 +124,21 @@ func (o *OIDCProvider) RegisterHandlers(r chi.Router) {
 }
 
 func (o *OIDCProvider) newSession(aroot string, values url.Values) *openid.DefaultSession {
+	var name []string = strings.Split(values.Get("name"), " ")
+	var firstName string
+	var lastName string
+
+	if len(name) > 0 {
+		firstName = name[0]
+		if len(name) > 1 {
+			lastName = strings.Join(name[1:], " ")
+		}
+	}
+
 	return &openid.DefaultSession{
 		Claims: &jwt.IDTokenClaims{
 			Issuer:      aroot,
-			Subject:     values.Get("username"),
+			Subject:     values.Get("external_id"),
 			Audience:    []string{},
 			ExpiresAt:   time.Now().Add(time.Hour * 6),
 			IssuedAt:    time.Now(),
@@ -139,6 +150,9 @@ func (o *OIDCProvider) newSession(aroot string, values url.Values) *openid.Defau
 				"picture":        values.Get("avatar_url"),
 				"name":           values.Get("name"),
 				"groups":         strings.Split(values.Get("groups"), ","),
+				"username":       values.Get("username"),
+				"first_name":     firstName,
+				"last_name":      lastName,
 			},
 		},
 		Headers: &jwt.Headers{
